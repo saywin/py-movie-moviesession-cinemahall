@@ -36,10 +36,8 @@ def update_movie_session(session_id: int,
 
     session.save()
 
-    return "Movie session updated successfully."
+    return session
 
 
-def delete_movie_session_by_id(session_id: int) -> str:
-    session = MovieSession.objects.filter(id=session_id)
-    session.delete()
-    return "Movie session deleted successfully."
+def delete_movie_session_by_id(session_id: int) -> None:
+    get_movie_session_by_id(session_id).delete()
